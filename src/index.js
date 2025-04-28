@@ -64,21 +64,10 @@ app.use("/v1/", v1NewsRoute);
 const v1RatingRoute = require("./v1/routes/RatingRoute.js");
 app.use("/v1/", v1RatingRoute);
 
-if (typeof(PhusionPassenger) !== 'undefined') {
-    PhusionPassenger.configure({ autoInstall: false });
-}
-
-if (typeof(PhusionPassenger) !== 'undefined') {
-    app.listen('passenger', () => { 
-        console.log(`API is listening on passenger`);
-        V1SwaggerDocs(app, PORT); 
-    });
-} else {
-    app.listen(PORT, '109.234.166.35', () => { 
-        console.log(`API is listening on port ${PORT}`);
-        V1SwaggerDocs(app, PORT); 
-    });
-}
+app.listen(PORT, IP_ADDRESS, () => { 
+    console.log(`API is listening on port ${PORT}`);
+    V1SwaggerDocs(app, PORT); 
+});
 
 // Middleware de gestion des erreurs
 app.use((err, req, res, next) => {
