@@ -15,7 +15,7 @@ const connectToDatabase = async () => {
     try {
       client = new MongoClient(_url);
       await client.connect();
-      db = client.db('ResilinkWithoutODEP');
+      db = client.db('Resilink');
       connectDB.info('Connected to MongoDB');
     } catch (error) {
       connectDB.error('Failed to connect to MongoDB', { error });
