@@ -68,9 +68,3 @@ app.listen(PORT, IP_ADDRESS, () => {
     console.log(`API is listening on port ${PORT}`);
     V1SwaggerDocs(app, PORT); 
 });
-
-// Middleware de gestion des erreurs
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send({ message: err.stack });
-});
